@@ -1,0 +1,92 @@
+{
+    "recipes": [
+        {
+            "id": 1,
+            "title": "Refresco Tropical Sin Alcohol",
+            "subtitle": "Sin alcohol",
+            "image": "https://i.ibb.co/d7qjjQJ/1-Refresco-Tropical-Sin-Alcohol.jpg",
+            "ingredients": [
+                "1 lata de Burbuja frutal (categoría sin alcohol)",
+                "1 taza de jugo de naranja natural",
+                "1/2 taza de agua con gas",
+                "Rodajas de naranja y hojas de menta para decorar"
+            ],
+            "instructions": [
+                "En un vaso grande, mezcla la lata de Burbuja frutal con el jugo de naranja.",
+                "Añade el agua con gas y mezcla suavemente.",
+                "Decora con rodajas de naranja y hojas de menta."
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Mocktail Cítrico para Niños",
+            "subtitle": "Niños",
+            "image": "https://i.ibb.co/DWt72bC/4-Mocktail-Ci-trico-para-Nin-os.jpg",
+            "ingredients": [
+                "1 lata de Tropiti (piña, mango y coco)",
+                "1/2 taza de jugo de uva blanca",
+                "1/4 taza de soda de limón",
+                "Rodajas de limón y cerezas para decorar"
+            ],
+            "instructions": [
+                "En un vaso, mezcla la lata de Tropiti con el jugo de uva blanca.",
+                "Añade la soda de limón y mezcla suavemente.",
+                "Decora con rodajas de limón y cerezas."
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Cóctel de fresas con tequila",
+            "subtitle": "Con alcohol",
+            "image": "https://i.ibb.co/fQGtgpR/2-Co-ctel-de-fresas-con-tequila.jpg",
+            "ingredients": [
+                "1 lata de BerryBliss (frutos del bosque con tequila)",
+                "1/2 taza de jugo de limón",
+                "1/4 taza de jarabe de azúcar",
+                "Hielo",
+                "Rodajas de limón y arándanos para decorar"
+            ],
+            "instructions": [
+                "Llena un vaso alto con hielo.",
+                "Vierte la lata de BerryBliss y añade el jugo de limón y el jarabe de azúcar.",
+                "Mezcla bien y decora con rodajas de limón y arándanos."
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Burbujas Saludables",
+            "subtitle": "Saludable",
+            "image": "https://i.ibb.co/7RpfjYD/3-Burbujas-Saludables.jpg",
+            "ingredients": [
+                "1 lata de Nature (cidrón, romero y cardamomo)",
+                "1/2 taza de jugo de pepino",
+                "1/4 taza de jugo de manzana natural",
+                "Rodajas de pepino y hojas de albahaca para decorar"
+            ],
+            "instructions": [
+                "En un vaso grande, mezcla la lata de Nature con el jugo de pepino y el jugo de manzana.",
+                "Añade hielo si lo deseas.",
+                "Decora con rodajas de pepino y hojas de albahaca."
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Elixir Amarela con Ginebra",
+            "subtitle": "Con alcohol",
+            "image": "https://i.ibb.co/GxjT1gz/recipe.jpg",
+            "ingredients": [
+                "1 lata de Amarela (piña, jengibre)",
+                "1 onza de ginebra",
+                "1/2 taza de agua tónica",
+                "Hielo",
+                "Rodajas de limón y ramitas de menta para decorar"
+            ],
+            "instructions": [
+                "Llena un vaso alto con hielo.",
+                "Vierte la lata de Amarela y añade la ginebra.",
+                "Completa con agua tónica y mezcla suavemente.",
+                "Decora con rodajas de limón y ramitas de menta."
+            ]
+        }
+    ]
+}

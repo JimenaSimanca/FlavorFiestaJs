@@ -1,0 +1,162 @@
+/* Estilos generales */
+.order-summary {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+
+    margin: 80px auto;
+    color: #CC2D4A;
+}
+
+header {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.order-details,
+.shipping-details {
+    margin-top: 5px;
+    border: none;
+    margin-left: 10px;
+
+    font-size: 16px;
+}
+
+.shipping-details {
+    min-width: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    box-sizing: border-box;
+
+}
+
+.text {
+    color: #000000BD;
+
+    font-size: 16px;
+
+}
+
+.all {
+    width: 100%;
+}
+
+
+.order-details {
+    display: flex;
+    justify-content: space-between;
+    color: #8FA206;
+}
+.order-details p{
+   padding-left: 11px;
+}
+
+#imprimirR {
+    color: #8FA206;
+    text-decoration: underline;
+}
+
+.order-table-content {
+    background-color: #FFF;
+}
+
+.order-table {
+
+    border: none;
+
+}
+
+.order-table-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+th {
+    font-weight: 500;
+    color: #CC2D4A;
+    background-color: white;
+    border: none
+}
+
+tr {
+    border-right: none;
+    border-left: none;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    /* Solo borde inferior */
+}
+
+.tbody-text {
+    color: #000000BD;
+}
+
+/* Eliminar todas las líneas verticales */
+.order-table td {
+    border-right: none !important;
+    border-left: none !important;
+}
+
+
+.total {
+    text-align: right;
+
+}
+
+.shipping-table {
+    color: #000000BD;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.shipping-table thead th {
+    text-align: left;
+    background-color: #FFF;
+    border-right: 1px solid #ddd;
+    padding: 8px;
+}
+
+.shipping-table tbody td {
+    text-align: left;
+    background-color: #FFF;
+    padding: 8px;
+    border: none
+        /* Elimina todos los bordes de las celdas */
+}
+
+
+.shipping-table tbody tr:last-child td {
+    border-bottom: 1px solid #ddd;
+    /* Añade borde inferior solo a la primera y última fila del cuerpo */
+}
+
+.shipping-table-content {
+    text-align: left;
+    background-color: #FFF;
+    padding: 8px;
+}
+
+@media (max-width: 600px) {
+    .order-summary {
+        padding: 10px;
+    }
+
+    table,
+    th,
+    td {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
