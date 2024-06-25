@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Document,
   Page,
@@ -9,9 +9,11 @@ import {
   Font,
 } from '@react-pdf/renderer';
 import logo from '../../assets/logoo.png';
-import drink from '../../assets/drink.jpg'
 import poppinsRegular from '../../assets/Poppins-Regular.ttf';
 import poppinsBold from '../../assets/Poppins-Bold.ttf';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import API_BASE_URL from '../../config';
 
 Font.register({
   family: 'Poppins',
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 0.3,
     backgroundColor: '#CC2D4A',
-    color: '#FFFFFFF'
+    color: '#FFFFFF'
   },
   tableCol: {
     width: "25%",
@@ -128,6 +130,30 @@ const styles = StyleSheet.create({
 });
 
 const Report = () => {
+  const { orderId } = useParams();
+  const [orderDetails, setOrderDetails] = useState(null);
+
+  useEffect(() => {
+    const fetchOrderDetails = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/informacionCompra/informacionCompleta/2`);
+        setOrderDetails(response.data);
+      } catch (error) {
+        console.error("Error fetching order details", error);
+      }
+    };
+
+    fetchOrderDetails();
+  }, [orderId]);
+
+
+  if (!orderDetails) {
+    return <Text>Cargando...</Text>;
+  }
+
+  const { orden, OrdenProducto, datos_envio, tarjeta } = orderDetails;
+  const subtotal = OrdenProducto.reduce((acc, producto) => acc + producto.total, 0);
+
   return (
     <Document>
       <Page style={styles.page}>
@@ -138,10 +164,10 @@ const Report = () => {
           </Text>
         </View>
         <View style={styles.orderInfo}>
-          <Text style={styles.orderNumber}>Orden #001</Text>
-          <Text style={styles.orderText}>Fecha de compra: Junio 2024</Text>
+          <Text style={styles.orderNumber}>Orden #{orden.id}</Text>
+          <Text style={styles.orderText}>Fecha de compra: {orden.fechaOrden}</Text>
           <Text style={styles.orderText}>
-            Estado de pago: <Text style={styles.paymentStatus}>PAGADO</Text>
+            Estado de pago: <Text style={styles.paymentStatus}>{orden.estado_pago}</Text>
           </Text>
         </View>
         <View style={styles.section}>
@@ -161,50 +187,38 @@ const Report = () => {
                 <Text style={styles.tableCellHeader}>Total</Text>
               </View>
             </View>
-            <View style={styles.tableRow}>
-              <View style={styles.tableCol}>
-                <Image style={styles.tableCellImage} src= {drink} />
+            {OrdenProducto.map(producto => (
+              <View style={styles.tableRow} key={producto.id}>
+                <View style={styles.tableCol}>
+                  <Image style={styles.tableCellImage} src={producto.producto.imagenes ? producto.producto.imagenes[0] : "default-image.png"} />
+                </View>
+                <View style={styles.tableCol}>
+                  <Text style={styles.tableCell}>{producto.producto.nombre}</Text>
+                </View>
+                <View style={styles.tableCol}>
+                  <Text style={styles.tableCell}>{producto.cantidad}</Text>
+                </View>
+                <View style={styles.tableCol}>
+                  <Text style={styles.tableCell}>${producto.total}</Text>
+                </View>
               </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.tableCell}>Amarela</Text>
-              </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.tableCell}>1</Text>
-              </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.tableCell}>$20.000</Text>
-              </View>
-            </View>
-            <View style={styles.tableRow}>
-              <View style={styles.tableCol}>
-              <Image style={styles.tableCellImage} src= {drink} />
-              </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.tableCell}>BerryBliss</Text>
-              </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.tableCell}>3</Text>
-              </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.tableCell}>$60.000</Text>
-              </View>
-            </View>
+            ))}
           </View>
-          <Text style={styles.total}>Subtotal: $80.000</Text>
+          <Text style={styles.total}>Subtotal: ${subtotal}</Text>
         </View>
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Información de la compra:</Text>
           <View style={styles.infoSection}>
             <Text style={styles.sectionTitle}>Datos personales y dirección:</Text>
-            <Text style={styles.infoText}>Nombre:</Text>
-            <Text style={styles.infoText}>Dirección:</Text>
-            <Text style={styles.infoText}>Email:</Text>
-            <Text style={styles.infoText}>Teléfono:</Text>
+            <Text style={styles.infoText}>Nombre: {datos_envio.nombre}</Text>
+            <Text style={styles.infoText}>Dirección: {datos_envio.direccion}</Text>
+            <Text style={styles.infoText}>Email: </Text>
+            <Text style={styles.infoText}>Teléfono: </Text>
           </View>
           <View style={styles.infoSection}>
             <Text style={styles.sectionTitle}>Método de pago:</Text>
-            <Text style={styles.infoText}>Nombre:</Text>
-            <Text style={styles.infoText}>Estado de pago:</Text>
+            <Text style={styles.infoText}>Nombre en la tarjeta: {tarjeta.nombre}</Text>
+            <Text style={styles.infoText}>Estado de pago: {orden.estado_pago}</Text>
           </View>
         </View>
       </Page>

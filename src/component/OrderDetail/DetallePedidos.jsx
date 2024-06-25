@@ -8,12 +8,12 @@ const DetallePedidos = () => {
 
   useEffect(() => {
     if (orden && orden.success !== false) {
-      const parsedOrders = orden.map(o => ({
+      const parsedOrders = orden.map((o) => ({
         id: o.orden.id,
         date: o.orden.fechaOrden,
         status: o.orden.id_estado,
         total: o.orden.total,
-        link: `/orderList/${o.orden.id}`
+        link: `/orderList/${o.orden.id}`,
       }));
       setOrders(parsedOrders);
     }

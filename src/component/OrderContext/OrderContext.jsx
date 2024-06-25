@@ -15,7 +15,7 @@ export const OrderProvider = ({ children }) => {
     const fetchOrden = async () => {
       if (usuario) {
         try {
-          const response = await axios.get(`${API_BASE_URL}/ordenes/usuario&estadoConDatos?UserID=${usuario.id}&EstadoID=1`);
+          const response = await axios.get(`${API_BASE_URL}/informacionCompra/informacionCompleta/`);
           setOrden(response.data);
         } catch (error) {
           setOrden({ success: false });

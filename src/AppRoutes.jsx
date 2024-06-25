@@ -48,8 +48,8 @@ const AppRoutes = () => {
           <Route path="/ResetPassword/:usuarioId/:token" element={<ResetPassword2 />} />
           <Route path="/EditarPerfil" element={<EditarPerfil />} />
           <Route path="/confirm-email/:token" element={<ConfirmEmail />} />
-          <Route path="/OrderDetail" element={<DetallePedidos/>} />
-          <Route path="/OrderList" element={<ListaPedidos/>} />
+          <Route path="/OrderDetail/" element={<DetallePedidos/>} />
+          <Route path="/OrderList/:id" element={<ListaPedidos/>} />
           <Route path="/Report" element={<Report/>} />
         </Route>
       </Routes>
